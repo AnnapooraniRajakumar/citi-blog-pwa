@@ -30,6 +30,22 @@ const getBlogById = () => {
     .catch();
 }
 
+function AddBlog(){
+fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify({
+    title: document.getElementById("blogtitle").value,
+    body: document.getElementById("blogbody").value,
+    userId: 1,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+}
+
 
 // const url = 'https://jsonplaceholder.typicode.com/posts';
 // fetch(url)
